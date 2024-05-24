@@ -40,7 +40,6 @@ const SubscriptionForm = () => {
           <img src={AlyfLogo} className="h-20" alt="logo" />
         </div>
 
-        <h2 className="text-2xl color font-semibold text-center mb-4">Subscribe</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="mce-EMAIL" className="block text-gray-300 font-medium text-left">Email Address</label>
@@ -62,7 +61,7 @@ const SubscriptionForm = () => {
             <input type="text" name="b_7d11ffadf8fc4eb14b70df267_6a5994f824" tabIndex={-1} value="" />
           </div>
           <div className="mt-6">
-            <button type="submit" name="subscribe" id="mc-embedded-subscribe" className="w-full px-4 py-2 text-white font-semibold rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" style={{ backgroundColor: '#323154' }}>
+            <button type="submit" name="subscribe" id="mc-embedded-subscribe" className="button">
               Continue
             </button>
           </div>
