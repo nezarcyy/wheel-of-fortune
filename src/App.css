@@ -60,17 +60,28 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border: 0px solid #FFD700;
+  box-shadow: 0 0 10px #FFD700, 0 0 10px #FFD700, 0 0 25px #FFD700, 0 0 35px #FFD700;
+  transition: 350ms ease-in-out;
+}
+
+.button:hover, .button:focus {
+  box-shadow: 0 0 15px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFD700, 0 0 40px #FFD700;
+  transform: scale(1.05);
+}
+
+.button:before, .button:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
 }
 
 .button:before {
-  content: "";
-  position: absolute;
   left: 0;
   top: 0;
-  width: 0;
-  height: 0;
-  border-top: 2px solid #F3BB1A;
-  border-right: 2px solid #F3BB1A;
+  border-top: 2px solid #FFD700;
+  border-right: 2px solid #FFD700;
   animation: border-top-right 3s infinite alternate;
 }
 
@@ -97,12 +108,8 @@
 }
 
 .button:after {
-  content: "";
-  position: absolute;
   right: 0;
   bottom: 0;
-  width: 0;
-  height: 0;
   border-bottom: 2px solid #F3BB1A;
   border-left: 2px solid #F3BB1A;
   animation: border-bottom-left 3s infinite alternate;
@@ -209,10 +216,6 @@
     width: 300px;
     height: 60px;
     font-size: 16px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   @keyframes border-top-right {
@@ -268,4 +271,45 @@
       opacity: 1;
     }
   }
+}
+
+/* Optionally, you can add an animation for continuous rotation */
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 8s linear infinite;
+  -moz-animation: rotating 8s linear infinite;
+  -ms-animation: rotating 8s linear infinite;
+  -o-animation: rotating 8s linear infinite;
+  animation: rotating 8s linear infinite;
+  width: 250px; /* Adjust the size as needed */
+  height: 250px;
+  margin-bottom: 30px;
 }

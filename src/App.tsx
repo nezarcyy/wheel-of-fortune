@@ -28,8 +28,8 @@ function App() {
                     />
                 )}
                 <Routes>
+                    <Route path="/" element={<StyledButton />} />
                     <Route path="/contact" element={<Contact />} />
-                    <Route path="/styled-button" element={<StyledButton />} />
                 </Routes>
             </div>
         </Router>
