@@ -1,14 +1,13 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from '../WheelOfFortune.module.css';
 
 const sectors = [
-  { color: '#f82', label: 'Stack' },
-  { color: '#0bf', label: '10' },
-  { color: '#fb0', label: '200' },
-  { color: '#0fb', label: '50' },
-  { color: '#b0f', label: '100' },
-  { color: '#f0b', label: '5' },
-  { color: '#bf0', label: '500' },
+  { color: '#f82', label: 'itm1' },
+  { color: '#0bf', label: 'itm2' },
+  { color: '#fb0', label: 'itm3' },
+  { color: '#0fb', label: 'itm4' },
+  { color: '#b0f', label: 'itm5' },
+  { color: '#0fb', label: 'itm6' },
 ];
 
 const rand = (m: number, M: number) => Math.random() * (M - m) + m;
@@ -20,6 +19,7 @@ const arc = TAU / sectors.length;
 const WheelOfFortune: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const spinRef = useRef<HTMLDivElement>(null);
+  const [currentLabel, setCurrentLabel] = useState<string>('Spin the wheel to get a label'); // Default text
   let angVel = 0; // Angular velocity
   let ang = 0; // Angle in radians
 
@@ -53,6 +53,7 @@ const WheelOfFortune: React.FC = () => {
     if (spinRef.current) {
       spinRef.current.textContent = !angVel ? 'SPIN' : sector.label;
       spinRef.current.style.background = sector.color;
+      setCurrentLabel(sector.label); // Update the current label
     }
   };
 
@@ -88,9 +89,12 @@ const WheelOfFortune: React.FC = () => {
   }, []);
 
   return (
-    <div id={styles.wheelOfFortune}>
-      <canvas ref={canvasRef} id="wheel" width="300" height="300"></canvas>
-      <div ref={spinRef} id={styles.spin}>SPIN</div>
+    <div id={styles.container}>
+      <div id={styles.wheelOfFortune}>
+        <canvas ref={canvasRef} id="wheel" width="350px" height="350px"></canvas>
+        <div ref={spinRef} id={styles.spin}>SPIN</div>
+      </div>
+      <div className={styles.textarea}>{currentLabel || 'Spin the wheel to get a label'}</div>
     </div>
   );
 };

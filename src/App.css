@@ -249,8 +249,8 @@
   -ms-animation: rotating 8s linear infinite;
   -o-animation: rotating 8s linear infinite;
   animation: rotating 8s linear infinite;
-  width: 250px; /* Adjust the size as needed */
-  height: 250px;
+  width: 350px;
+  height: 350px;
   margin-bottom: 30px;
 }
 
@@ -261,14 +261,14 @@
 /* Neon Effect */
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 16px #F3BB1A, inset 0 0 16px #F3BB1A; }
-  50% { box-shadow: 0 0 32px #F3BB1A, inset 0 0 28px #F3BB1A; }
-  100% { box-shadow: 0 0 16px #F3BB1A, inset 0 0 16px #F3BB1A; }
+  0% { box-shadow: 0 0 32px #F3BB1A, inset 0 0 32px #F3BB1A; }
+  50% { box-shadow: 0 0 64px #F3BB1A, inset 0 0 56px #F3BB1A; }
+  100% { box-shadow: 0 0 32px #F3BB1A, inset 0 0 32px #F3BB1A; }
 }
 
 .inner {
-  width: 250px;
-  height: 250px;
+  width: 350px;
+  height: 350px;
   border-radius: 200px;
   box-shadow: 0 0 16px #F3BB1A, inset 0 0 16px #F3BB1A;
   animation: pulse 2s linear 1s infinite;
