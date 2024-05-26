@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AlyfLogo from '../assets/Alyf.svg';
 import Wheel from '../assets/wheel.png';
-import Loader from './Loader'; // Import the Loader component
+import Loader from './Loader';
 import '../Slider.css';
 
 const StyledButton: React.FC = () => {
@@ -11,7 +10,6 @@ const StyledButton: React.FC = () => {
 
   const handleStartNowClick = () => {
     setLoading(true);
-    // Simulate an async operation before navigating
     setTimeout(() => {
       setLoading(false);
       navigate('/contact');
@@ -21,9 +19,6 @@ const StyledButton: React.FC = () => {
   return (
     <div className="relative h-screen bg-black bg-opacity-0">
       <Loader show={loading} />
-      <div className="absolute top-0 left-0 mt-4 ml-6">
-        <img src={AlyfLogo} className="h-10" alt="logo" />
-      </div>
       <div className="flex justify-center items-center h-full">
         <div className="flex flex-col items-center">
           <div className="inner">

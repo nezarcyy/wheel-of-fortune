@@ -1,14 +1,24 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import AlyfLogo from '../assets/Alyf.svg';
+import Loader from './Loader';
+import { useNavigate } from 'react-router-dom';
 
 const SubscriptionForm = () => {
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      navigate('/wheel-of-fortune');
+    }, 2000);
+
     event.preventDefault();
 
     const url = 'https://outlook.us17.list-manage.com/subscribe/post-json?u=7d11ffadf8fc4eb14b70df267&id=6a5994f824&c=?';
@@ -34,12 +44,9 @@ const SubscriptionForm = () => {
 
   return (
     <div className="flex justify-center items-center h-screen min-h-screen bg-black bg-opacity-0 animate-fade animate-duration-[3000ms] animate-ease-out">
+      <Loader show={loading} />
+
       <div className="w-full max-w-md p-6 bg-opacity-100 shadow-md rounded-md">
-
-        <div className="absolute top-0 left-0 mt-4 ml-6">
-          <img src={AlyfLogo} className="h-10" alt="logo" />
-        </div>
-
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="mce-EMAIL" className="block text-gray-300 font-medium text-left">Email Address</label>
