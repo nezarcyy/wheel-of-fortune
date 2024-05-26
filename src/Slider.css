@@ -1,73 +1,103 @@
+@keyframes cursor {
+  from, to { border-color: transparent; }
+  50% { border-color: rgb(255, 255, 255); }
+}
 
-  
-  @keyframes cursor {
-    from, to { border-color: transparent; }
-    50% { border-color: rgb(255, 255, 255); }
+@keyframes typing {
+  from { width: 100%; }
+  90%, to { width: 0; }
+}
+
+@keyframes slide {
+  33.3333% { font-size: 20px; letter-spacing: 3px; }
+  to { font-size: 0; letter-spacing: 0; }
+}
+
+.typing-slider {
+  font-family: 'VT323', monospace, sans-serif;
+  font-weight: regular;
+  text-align: left;
+  white-space: nowrap;
+  margin-top: 20px;
+  color: rgb(255, 255, 255);
+}
+
+.typing-slider p {
+  position: relative;
+  display: inline;
+  font-size: 0;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  animation: slide 15s step-start infinite;
+}
+
+.typing-slider p::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-left: 3px solid rgb(255, 255, 255);
+  background-color: #000000;
+  animation: typing 5s infinite, cursor 1s infinite;
+}
+
+.typing-slider p:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-slider p:nth-child(1)::after {
+  animation-delay: 0s;
+  animation-timing-function: steps(29), step-end;
+}
+
+.typing-slider p:nth-child(2) {
+  animation-delay: 5s;
+}
+
+.typing-slider p:nth-child(2)::after {
+  animation-delay: 5s;
+  animation-timing-function: steps(29), step-end;
+}
+
+.typing-slider p:nth-child(3) {
+  animation-delay: 10s;
+}
+
+.typing-slider p:nth-child(3)::after {
+  animation-delay: 10s;
+  animation-timing-function: steps(29), step-end;
+}
+
+/* Mobile Responsiveness */
+/* Mobile Responsiveness */
+@media only screen and (max-width: 600px) {
+  .typing-slider {
+    margin-top: 20px; /* Adjust margin for smaller screens */
   }
-  
-  @keyframes typing {
+
+  .typing-slider p {
+    font-size: 12px; /* Adjust font size for smaller screens */
+    animation: slide-mobile 15s step-start infinite; /* New animation for mobile */
+  }
+
+  .typing-slider p::after {
+    animation: typing-mobile 5s infinite, cursor-mobile 1s infinite; /* New animations for mobile */
+  }
+
+  /* New keyframes for mobile */
+  @keyframes slide-mobile {
+    33.3333% { font-size: 16px; letter-spacing: 2px; }
+    to { font-size: 0; letter-spacing: 0; }
+  }
+
+  @keyframes typing-mobile {
     from { width: 100%; }
     90%, to { width: 0; }
   }
-  
-  @keyframes slide {
-    33.3333% { font-size: 20px; letter-spacing: 3px; }
-    to { font-size: 0; letter-spacing: 0; }
+
+  @keyframes cursor-mobile {
+    from, to { border-color: transparent; }
+    50% { border-color: rgb(255, 255, 255); }
   }
-  
-  .typing-slider {
-    font-family: 'VT323', monospace, sans-serif;
-    font-weight: regular;
-    text-align: left;
-    white-space: nowrap;
-    margin-top: 20px;
-    color: rgb(255, 255, 255);
-  }
-  
-  .typing-slider p {
-    position: relative;
-    display: inline;
-    font-size: 0;
-    text-transform: uppercase;
-    letter-spacing: 0;
-    animation: slide 15s step-start infinite;
-  }
-  
-  .typing-slider p::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    border-left: 3px solid rgb(255, 255, 255);
-    background-color: #000000;
-    animation: typing 5s infinite, cursor 1s infinite;
-  }
-  
-  .typing-slider p:nth-child(1) {
-    animation-delay: 0s;
-  }
-  
-  .typing-slider p:nth-child(1)::after {
-    animation-delay: 0s;
-    animation-timing-function: steps(29), step-end;
-  }
-  
-  .typing-slider p:nth-child(2) {
-    animation-delay: 5s;
-  }
-  
-  .typing-slider p:nth-child(2)::after {
-    animation-delay: 5s;
-    animation-timing-function: steps(29), step-end;
-  }
-  
-  .typing-slider p:nth-child(3) {
-    animation-delay: 10s;
-  }
-  
-  .typing-slider p:nth-child(3)::after {
-    animation-delay: 10s;
-    animation-timing-function: steps(29), step-end;
-  }
-  
+}

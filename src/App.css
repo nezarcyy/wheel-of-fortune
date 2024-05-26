@@ -148,7 +148,7 @@
 }
 
 /* Responsive styling for tablets and below */
-@media (max-width: 768px) {
+@media (max-width: 300px) {
   .button {
     width: 400px;
     height: 40px;
@@ -211,67 +211,7 @@
 }
 
 /* Responsive styling for mobile devices */
-@media (max-width: 480px) {
-  .button {
-    width: 300px;
-    height: 60px;
-    font-size: 16px;
-  }
 
-  @keyframes border-top-right {
-    0% {
-      width: 0px;
-      height: 0px;
-    }
-
-    25% {
-      width: 300px;
-      height: 0px;
-    }
-
-    50% {
-      width: 300px;
-      height: 56px;
-    }
-
-    100% {
-      width: 300px;
-      height: 56px;
-    }
-  }
-
-  @keyframes border-bottom-left {
-    0% {
-      width: 0px;
-      height: 0px;
-      opacity: 0;
-    }
-
-    50% {
-      width: 0px;
-      height: 0px;
-      opacity: 0;
-    }
-
-    50.1% {
-      width: 0px;
-      height: 0px;
-      opacity: 1;
-    }
-
-    75% {
-      width: 300px;
-      height: 0px;
-      opacity: 1;
-    }
-
-    100% {
-      width: 300px;
-      height: 56px;
-      opacity: 1;
-    }
-  }
-}
 
 /* Optionally, you can add an animation for continuous rotation */
 
