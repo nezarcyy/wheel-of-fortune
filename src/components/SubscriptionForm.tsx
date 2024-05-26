@@ -33,11 +33,11 @@ const SubscriptionForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen min-h-screen bg-black bg-opacity-0">
+    <div className="flex justify-center items-center h-screen min-h-screen bg-black bg-opacity-0 animate-fade animate-duration-[3000ms] animate-ease-out">
       <div className="w-full max-w-md p-6 bg-opacity-100 shadow-md rounded-md">
 
-        <div className="flex justify-center items-center min-h-screen mt-72">
-          <img src={AlyfLogo} className="h-20" alt="logo" />
+        <div className="absolute top-0 left-0 mt-4 ml-6">
+          <img src={AlyfLogo} className="h-10" alt="logo" />
         </div>
 
         <form onSubmit={handleSubmit}>
@@ -60,7 +60,7 @@ const SubscriptionForm = () => {
           <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
             <input type="text" name="b_7d11ffadf8fc4eb14b70df267_6a5994f824" tabIndex={-1} value="" />
           </div>
-          <div className="mt-6">
+          <div className="btn-margin">
             <button type="submit" name="subscribe" id="mc-embedded-subscribe" className="button">
               Continue
             </button>

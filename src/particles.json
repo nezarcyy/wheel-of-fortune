@@ -417,26 +417,26 @@
         "enable": false,
         "speed": 0,
         "decay": 0,
-        "sync": false
+        "sync": true
       },
       "direction": "clockwise",
       "enable": false
     },
     "twinkle": {
       "lines": {
-        "enable": false,
+        "enable": true,
         "frequency": 0.05,
         "opacity": 1
       },
       "particles": {
-        "enable": false,
+        "enable": true,
         "frequency": 0.05,
         "opacity": 1
       }
     },
     "wobble": {
       "distance": 5,
-      "enable": false,
+      "enable": true,
       "speed": {
         "angle": 50,
         "move": 10
@@ -446,11 +446,11 @@
       "count": 0,
       "delay": {
         "value": 0,
-        "sync": false
+        "sync": true
       },
       "duration": {
         "value": 0,
-        "sync": false
+        "sync": true
       }
     },
     "rotate": {
@@ -473,7 +473,7 @@
         "delay": 0,
         "sync": false
       },
-      "enable": false,
+      "enable": true,
       "opacity": 1,
       "rotation": {
         "value": 45
@@ -481,11 +481,11 @@
       "width": 1
     },
     "links": {
-      "blink": false,
+      "blink": true,
       "color": {
         "value": "#fff"
       },
-      "consent": false,
+      "consent": true,
       "distance": 100,
       "enable": false,
       "frequency": 1,
@@ -516,7 +516,7 @@
   "pauseOnBlur": true,
   "pauseOnOutsideViewport": true,
   "responsive": [],
-  "smooth": false,
+  "smooth": true,
   "style": {},
   "themes": [],
   "zLayers": 100,
@@ -524,11 +524,11 @@
     "autoPlay": true,
     "fill": true,
     "life": {
-      "wait": false
+      "wait": true
     },
     "rate": {
       "quantity": 1,
-      "delay": 7
+      "delay": 700
     },
     "shape": {
       "options": {},
@@ -549,9 +549,9 @@
         "type": "images",
         "options": {
           "images": {
-            "src": "https://i.postimg.cc/bYFYxfzc/output-onlinepngtools.png",
+            "src": "https://particles.js.org/images/cyan_amongus.png",
             "width": 500,
-            "height": 500
+            "height": 634
           }
         }
       },
@@ -564,7 +564,7 @@
           "default": "none",
           "right": "destroy"
         },
-        "straight": true
+        "straight": false
       },
       "zIndex": {
         "value": 0

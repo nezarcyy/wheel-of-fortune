@@ -11,7 +11,7 @@
   }
   
   @keyframes slide {
-    33.3333% { font-size: 25px; letter-spacing: 3px; }
+    33.3333% { font-size: 20px; letter-spacing: 3px; }
     to { font-size: 0; letter-spacing: 0; }
   }
   
@@ -20,6 +20,7 @@
     font-weight: regular;
     text-align: left;
     white-space: nowrap;
+    margin-top: 20px;
     color: rgb(255, 255, 255);
   }
   
@@ -49,7 +50,7 @@
   
   .typing-slider p:nth-child(1)::after {
     animation-delay: 0s;
-    animation-timing-function: steps(16), step-end;
+    animation-timing-function: steps(29), step-end;
   }
   
   .typing-slider p:nth-child(2) {
@@ -58,7 +59,7 @@
   
   .typing-slider p:nth-child(2)::after {
     animation-delay: 5s;
-    animation-timing-function: steps(23), step-end;
+    animation-timing-function: steps(29), step-end;
   }
   
   .typing-slider p:nth-child(3) {
@@ -67,6 +68,6 @@
   
   .typing-slider p:nth-child(3)::after {
     animation-delay: 10s;
-    animation-timing-function: steps(12), step-end;
+    animation-timing-function: steps(29), step-end;
   }
   
