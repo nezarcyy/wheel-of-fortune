@@ -20,9 +20,9 @@ html, body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
   height: 100vh;
   width: 100vw;
+  position: relative; /* Add this to ensure Confettiful can overlay correctly */
 }
 
 #wheelOfFortune {
@@ -83,5 +83,4 @@ html, body {
   transition: 350ms ease-in-out;
   border-radius: 15px;
   margin-top: 60px;
-
 }

@@ -9,6 +9,7 @@ import Contact from "./components/SubscriptionForm";
 import StyledButton from "./components/StartButton";
 import Wheel from "./components/Wheel";
 import AlyfLogo from './assets/Alyf.svg';
+import WiningPopup from "./components/WiningPopup";
 
 function App() {
     const [init, setInit] = useState(false);
@@ -36,6 +37,7 @@ function App() {
                     <Route path="/" element={<StyledButton />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/wheel-of-fortune" element={<Wheel />} />
+                    <Route path="/winnig-popup" element={<WiningPopup />} />
                 </Routes>
             </div>
         </Router>

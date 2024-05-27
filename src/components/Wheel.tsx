@@ -20,6 +20,7 @@ const WheelOfFortune: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const spinRef = useRef<HTMLDivElement>(null);
   const [currentLabel, setCurrentLabel] = useState<string>('Spin the wheel to get a label'); // Default text
+  const [spinning, setSpinning] = useState<boolean>(false); // Track if the wheel is spinning
   let angVel = 0; // Angular velocity
   let ang = 0; // Angle in radians
 
@@ -53,12 +54,17 @@ const WheelOfFortune: React.FC = () => {
     if (spinRef.current) {
       spinRef.current.textContent = !angVel ? 'SPIN' : sector.label;
       spinRef.current.style.background = sector.color;
-      setCurrentLabel(sector.label); // Update the current label
+    }
+    if (angVel) {
+      setCurrentLabel(sector.label); // Update the current label while spinning
     }
   };
 
   const frame = (ctx: CanvasRenderingContext2D) => {
-    if (!angVel) return;
+    if (!angVel) {
+      setSpinning(false); // Set spinning to false when the wheel stops
+      return;
+    }
     angVel *= friction;
     if (angVel < 0.002) angVel = 0;
     ang += angVel;
@@ -83,18 +89,30 @@ const WheelOfFortune: React.FC = () => {
 
     if (spinRef.current) {
       spinRef.current.addEventListener('click', () => {
-        if (!angVel) angVel = rand(0.25, 0.45);
+        if (!angVel) {
+          angVel = rand(0.25, 0.45);
+          setSpinning(true); // Set spinning to true when the wheel starts spinning
+          setCurrentLabel(''); // Clear the default text when spinning starts
+        }
       });
     }
   }, []);
 
+  useEffect(() => {
+    if (!spinning && !angVel) {
+      setCurrentLabel('Spin The Wheel to Win a Prize'); // Reset to default text when wheel stops
+    }
+  }, [spinning, angVel]);
+
   return (
     <div id={styles.container}>
       <div id={styles.wheelOfFortune}>
-        <canvas ref={canvasRef} id="wheel" width="350px" height="350px"></canvas>
+        <canvas ref={canvasRef} id="wheel" width="300" height="300"></canvas>
         <div ref={spinRef} id={styles.spin}>SPIN</div>
       </div>
-      <div className={styles.textarea}>{currentLabel || 'Spin the wheel to get a label'}</div>
+      <div className={styles.textarea}>
+        {currentLabel}
+      </div>
     </div>
   );
 };
