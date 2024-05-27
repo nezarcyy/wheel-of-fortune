@@ -249,8 +249,8 @@
   -ms-animation: rotating 8s linear infinite;
   -o-animation: rotating 8s linear infinite;
   animation: rotating 8s linear infinite;
-  width: 350px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   margin-bottom: 30px;
 }
 
@@ -267,9 +267,9 @@
 }
 
 .inner {
-  width: 350px;
-  height: 350px;
-  border-radius: 200px;
+  width: 400px;
+  height: 400px;
+  border-radius: 300px;
   box-shadow: 0 0 16px #F3BB1A, inset 0 0 16px #F3BB1A;
   animation: pulse 2s linear 1s infinite;
 }
@@ -363,24 +363,6 @@ body {
     height: 100vh;
     font-size: 100%;
   }
-}
-
-/* -------------- BUTTON */
-.button {
-  appearance: none;
-  background: #16a34a;
-  border-radius: 0.25em;
-  color: white;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 500;
-  height: 3em;
-  line-height: 3em;
-  padding: 0 1em;
-}
-
-.button:hover {
-  background-color: #19b14d;
 }
 
 /* -------------- DETAILS MODAL */

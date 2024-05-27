@@ -107,7 +107,7 @@ const WheelOfFortune: React.FC = () => {
   return (
     <div id={styles.container}>
       <div id={styles.wheelOfFortune}>
-        <canvas ref={canvasRef} id="wheel" width="300" height="300"></canvas>
+        <canvas ref={canvasRef} id="wheel" width="400" height="400"></canvas>
         <div ref={spinRef} id={styles.spin}>SPIN</div>
       </div>
       <div className={styles.textarea}>
