@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Loader from './Loader';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../context/UserProvider';
 
 const SubscriptionForm = () => {
   const [email, setEmail] = useState('');
@@ -10,10 +11,12 @@ const SubscriptionForm = () => {
   const [phone, setPhone] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
+  const { setUser } = useUser();
+  
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 
     setLoading(true);
+    setUser({ firstName });
     setTimeout(() => {
       setLoading(false);
       navigate('/wheel-of-fortune');

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from '../WheelOfFortune.module.css';
+import WinningPopup from './WiningPopup';
 
 const sectors = [
   { color: '#f82', label: 'itm1' },
@@ -19,12 +20,14 @@ const arc = TAU / sectors.length;
 const WheelOfFortune: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const spinRef = useRef<HTMLDivElement>(null);
-  const [currentLabel, setCurrentLabel] = useState<string>('Spin the wheel to get a label'); // Default text
-  const [spinning, setSpinning] = useState<boolean>(false); // Track if the wheel is spinning
-  let angVel = 0; // Angular velocity
-  let ang = 0; // Angle in radians
+  const [firstSpin, setFirstSpin] = useState<boolean>(true); 
+  const [currentLabel, setCurrentLabel] = useState<string>('Spin The Wheel to Win a Prize');
+  const [spinning, setSpinning] = useState<boolean>(false);
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
 
-  const friction = 0.991; // 0.995=soft, 0.99=mid, 0.98=hard
+  let angVel = 0;
+  let ang = 0;
+  const friction = 0.991;
 
   const getIndex = () => Math.floor(tot - (ang / TAU) * tot) % tot;
 
@@ -38,7 +41,6 @@ const WheelOfFortune: React.FC = () => {
     ctx.arc(rad, rad, rad, ang, ang + arc);
     ctx.lineTo(rad, rad);
     ctx.fill();
-
     ctx.translate(rad, rad);
     ctx.rotate(ang + arc / 2);
     ctx.textAlign = 'right';
@@ -55,14 +57,23 @@ const WheelOfFortune: React.FC = () => {
       spinRef.current.textContent = !angVel ? 'SPIN' : sector.label;
       spinRef.current.style.background = sector.color;
     }
-    if (angVel) {
-      setCurrentLabel(sector.label); // Update the current label while spinning
+    if (!angVel) {
+      setCurrentLabel(sector.label); // Update the current label when spinning stops
+      setSpinning(false);
+     
+
+    
+
+          setModalVisible(true) 
+        
+      // Show the modal when spinning stops
     }
   };
 
+  console.log('isvissiiiible  ', modalVisible , '  == ', firstSpin);
+  
   const frame = (ctx: CanvasRenderingContext2D) => {
     if (!angVel) {
-      setSpinning(false); // Set spinning to false when the wheel stops
       return;
     }
     angVel *= friction;
@@ -78,6 +89,7 @@ const WheelOfFortune: React.FC = () => {
   };
 
   useEffect(() => {
+   
     if (canvasRef.current) {
       const ctx = canvasRef.current.getContext('2d');
       if (ctx) {
@@ -89,20 +101,19 @@ const WheelOfFortune: React.FC = () => {
 
     if (spinRef.current) {
       spinRef.current.addEventListener('click', () => {
+        if (firstSpin) {
+          setFirstSpin(false);
+
+setModalVisible(false)
+        }
         if (!angVel) {
           angVel = rand(0.25, 0.45);
-          setSpinning(true); // Set spinning to true when the wheel starts spinning
-          setCurrentLabel(''); // Clear the default text when spinning starts
+          setSpinning(true);
+          setCurrentLabel('Spin The Wheel to Win a Prize');
         }
       });
     }
   }, []);
-
-  useEffect(() => {
-    if (!spinning && !angVel) {
-      setCurrentLabel('Spin The Wheel to Win a Prize'); // Reset to default text when wheel stops
-    }
-  }, [spinning, angVel]);
 
   return (
     <div id={styles.container}>
@@ -111,8 +122,13 @@ const WheelOfFortune: React.FC = () => {
         <div ref={spinRef} id={styles.spin}>SPIN</div>
       </div>
       <div className={styles.textarea}>
-        {currentLabel}
+        {firstSpin ? 'Spin The Wheel to Win a Prize' : currentLabel}
       </div>
+     {!firstSpin && <WinningPopup
+        isVisible={modalVisible}
+        onClose={() => setModalVisible(false)}
+        winningItem={currentLabel}
+      />}
     </div>
   );
 };

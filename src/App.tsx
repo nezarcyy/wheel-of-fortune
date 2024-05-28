@@ -37,7 +37,6 @@ function App() {
                     <Route path="/" element={<StyledButton />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/wheel-of-fortune" element={<Wheel />} />
-                    <Route path="/winnig-popup" element={<WiningPopup />} />
                 </Routes>
             </div>
         </Router>

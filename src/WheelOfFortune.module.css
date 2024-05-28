@@ -84,3 +84,50 @@ html, body {
   border-radius: 15px;
   margin-top: 60px;
 }
+
+/* Modal Styling */
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.1); /* More opaque black background */
+  backdrop-filter: blur(6px); /* Blurry effect on the background */
+}
+
+.modalContent {
+  background-color: rgba(0,0,0,0.7); /* More opaque black background */
+  margin: auto; /* Centering modal content vertically and horizontally */
+  padding: 20px;
+  text-align: center;
+  height: 100%; /* Full height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content inside modalContent */
+  font-size: 50px; /* Default font size for all text inside modalContent */
+  color: white;
+}
+
+.close {
+  color: #adadad;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  right: 20px; /* Ensures close button is positioned at the top-right corner */
+  top: 20px;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  cursor: pointer;
+}
