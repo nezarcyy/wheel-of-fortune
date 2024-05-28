@@ -118,7 +118,7 @@ setModalVisible(false)
   return (
     <div id={styles.container}>
       <div id={styles.wheelOfFortune}>
-        <canvas ref={canvasRef} id="wheel" width="400" height="400"></canvas>
+        <canvas ref={canvasRef} id="wheel" width="650" height="650"></canvas>
         <div ref={spinRef} id={styles.spin}>SPIN</div>
       </div>
       <div className={styles.textarea}>

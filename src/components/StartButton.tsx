@@ -3,10 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import Wheel from '../assets/wheel.png';
 import Loader from './Loader';
 import '../Slider.css';
+import CountdownTimer from './CountdownTimer';
+import TimePicker from './TimePicker';
 
 const StyledButton: React.FC = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [targetDate, setTargetDate] = useState<number>(Date.now() + 3 * 24 * 60 * 60 * 1000);
 
   const handleStartNowClick = () => {
     setLoading(true);
@@ -29,13 +32,8 @@ const StyledButton: React.FC = () => {
             <p>Wheel Brings Gifts Galore! 🎁</p>
             <p>Alyf's Wheel of Rewards! 🔥🔥</p>
           </div>
-
-          <div
-            className="button flex justify-center items-center w-64 h-16 bg-black bg-opacity-0 text-yellow-500 border-2 border-yellow-500 rounded-lg cursor-pointer"
-            onClick={handleStartNowClick}
-          >
-            START NOW!
-          </div>
+          <TimePicker setTargetDate={setTargetDate} />
+          <CountdownTimer targetDate={targetDate} />
         </div>
       </div>
     </div>
