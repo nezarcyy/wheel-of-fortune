@@ -146,6 +146,106 @@
     opacity: 1;
   }
 }
+/*Contact button*/
+
+.contactbutton {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: #F3BB1A;
+  width: 400px;
+  height: 40px;
+  background: rgb(31, 31, 31);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 0px solid #FFD700;
+  box-shadow: 0 0 10px #FFD700, 0 0 10px #FFD700, 0 0 25px #FFD700, 0 0 35px #FFD700;
+  transition: 350ms ease-in-out;
+}
+
+.contactbutton:hover, .contactbutton:focus {
+  box-shadow: 0 0 15px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFD700, 0 0 40px #FFD700;
+  transform: scale(1.05);
+}
+
+.contactbutton:before, .contactbutton:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.contactbutton:before {
+  left: 0;
+  top: 0;
+  border-top: 4px solid #FFD700;
+  border-right: 4px solid #FFD700;
+  animation: border-top-right 3s infinite alternate;
+}
+
+@keyframes border-top-right {
+  0% {
+    width: 0px;
+    height: 0px;
+  }
+
+  25% {
+    width: 400px;
+    height: 0px;
+  }
+
+  50% {
+    width: 400px;
+    height: 40px;
+  }
+
+  100% {
+    width: 400px;
+    height: 40px;
+  }
+}
+
+.contactbutton:after {
+  right: 0;
+  bottom: 0;
+  border-bottom: 2px solid #F3BB1A;
+  border-left: 2px solid #F3BB1A;
+  animation: border-bottom-left 3s infinite alternate;
+}
+
+@keyframes border-bottom-left {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+  }
+
+  50% {
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+  }
+
+  50.1% {
+    width: 0px;
+    height: 0px;
+    opacity: 1;
+  }
+
+  75% {
+    width: 400px;
+    height: 0px;
+    opacity: 1;
+  }
+
+  100% {
+    width: 400px;
+    height: 40px;
+    opacity: 1;
+  }
+}
 
 /* Responsive styling for tablets and below */
 @media (max-width: 300px) {

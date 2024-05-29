@@ -91,7 +91,7 @@ const SubscriptionForm = () => {
             <input type="text" name="b_7d11ffadf8fc4eb14b70df267_6a5994f824" tabIndex={-1} value="" />
           </div>
           <div className="btn-margin">
-            <button type="submit" name="subscribe" id="mc-embedded-subscribe" className="button flex justify-center items-center w-64 h-16 bg-black bg-opacity-0 text-yellow-500 border-2 border-yellow-500 rounded-lg cursor-pointer">
+            <button type="submit" name="subscribe" id="mc-embedded-subscribe" className="contactbutton">
               Continue
             </button>
           </div>
