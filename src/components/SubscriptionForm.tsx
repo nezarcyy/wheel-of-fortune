@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import Loader from './Loader';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserProvider';
-
+import { collection, getDocs } from "firebase/firestore";
+import { db } from './firebase-config';
+import { DataContext } from '../context/DataContext';
+export interface FirestoreData {
+  id: string;
+  label: string;
+  color: string;
+  Qte: number;
+  valeur: string;
+}
 const SubscriptionForm = () => {
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -12,27 +21,40 @@ const SubscriptionForm = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { setUser } = useUser();
-  
+  const [org, setOrg] = useState<FirestoreData[]>([]);
+  const { setData } = useContext(DataContext);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "organisation"));
+        const dataList = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        })) as FirestoreData[];
+        setData(dataList);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData()
+  }, []);
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-
     setLoading(true);
     setUser({ firstName });
     setTimeout(() => {
       setLoading(false);
       navigate('/wheel-of-fortune');
     }, 2000);
-
     event.preventDefault();
-
     const url = 'https://outlook.us17.list-manage.com/subscribe/post-json?u=7d11ffadf8fc4eb14b70df267&id=6a5994f824&c=?';
-
     const data = {
       EMAIL: email,
       FNAME: firstName,
       LNAME: lastName,
       PHONE: phone
     };
-
     try {
       const response = await axios.get(url, { params: data });
       if (response.data.result === 'success') {
@@ -44,11 +66,9 @@ const SubscriptionForm = () => {
       console.log('Success');
     }
   };
-
   return (
     <div className="flex justify-center items-center h-screen min-h-screen bg-black bg-opacity-0 animate-fade animate-duration-[3000ms] animate-ease-out">
       <Loader show={loading} />
-
       <div className="w-full max-w-md p-6 bg-opacity-100 shadow-md rounded-md">
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -80,5 +100,4 @@ const SubscriptionForm = () => {
     </div>
   );
 };
-
 export default SubscriptionForm;

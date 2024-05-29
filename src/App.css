@@ -50,10 +50,10 @@
 
 .button {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
+  font-size: 30px;
   color: #F3BB1A;
-  width: 400px;
-  height: 50px;
+  width: 650px;
+  height: 70px;
   background: rgb(31, 31, 31);
   position: relative;
   display: flex;
@@ -80,8 +80,8 @@
 .button:before {
   left: 0;
   top: 0;
-  border-top: 2px solid #FFD700;
-  border-right: 2px solid #FFD700;
+  border-top: 4px solid #FFD700;
+  border-right: 4px solid #FFD700;
   animation: border-top-right 3s infinite alternate;
 }
 
@@ -92,18 +92,18 @@
   }
 
   25% {
-    width: 400px;
+    width: 650px;
     height: 0px;
   }
 
   50% {
-    width: 400px;
-    height: 48px;
+    width: 650px;
+    height: 68px;
   }
 
   100% {
-    width: 400px;
-    height: 48px;
+    width: 650px;
+    height: 68px;
   }
 }
 
@@ -135,14 +135,14 @@
   }
 
   75% {
-    width: 400px;
+    width: 650px;
     height: 0px;
     opacity: 1;
   }
 
   100% {
-    width: 400px;
-    height: 48px;
+    width: 650px;
+    height: 68px;
     opacity: 1;
   }
 }
@@ -150,9 +150,9 @@
 /* Responsive styling for tablets and below */
 @media (max-width: 300px) {
   .button {
-    width: 400px;
-    height: 40px;
-    font-size: 18px;
+    width: 650px;
+    height: 60;
+    font-size: 28px;
   }
 
   @keyframes border-top-right {
@@ -162,18 +162,18 @@
     }
 
     25% {
-      width: 400px;
+      width: 650px;
       height: 0px;
     }
 
     50% {
-      width: 400px;
-      height: 40px;
+      width: 650px;
+      height: 68px;
     }
 
     100% {
-      width: 400px;
-      height: 40px;
+      width: 650px;
+      height: 68px;
     }
   }
 
@@ -197,14 +197,14 @@
     }
 
     75% {
-      width: 400px;
+      width: 650px;
       height: 0px;
       opacity: 1;
     }
 
     100% {
-      width: 400px;
-      height: 38px;
+      width: 650px;
+      height: 58px;
       opacity: 1;
     }
   }
@@ -249,9 +249,9 @@
   -ms-animation: rotating 8s linear infinite;
   -o-animation: rotating 8s linear infinite;
   animation: rotating 8s linear infinite;
-  width: 400px;
-  height: 400px;
-  margin-bottom: 30px;
+  width: 650px;
+  height: 650px;
+  margin-bottom: 50px;
 }
 
 .btn-margin {
@@ -267,9 +267,9 @@
 }
 
 .inner {
-  width: 400px;
-  height: 400px;
-  border-radius: 300px;
+  width: 650px;
+  height: 650px;
+  border-radius: 500px;
   box-shadow: 0 0 16px #F3BB1A, inset 0 0 16px #F3BB1A;
   animation: pulse 2s linear 1s infinite;
 }
@@ -421,19 +421,17 @@ body {
 .expired-notice {
   text-align: center;
   padding: 2rem;
-  border: 1px solid #ebebeb;
-  border-radius: 0.25rem;
   margin: 0.5rem;
 }
 
 .expired-notice > span {
-  font-size: 2.5rem;
+  font-size: 3.25rem;
   font-weight: bold;
   color: red;
 }
 
 .expired-notice > p {
-  font-size: 1.5rem;
+  font-size: 3.25rem;
 }
 
 .show-counter {
@@ -446,11 +444,9 @@ body {
   justify-content: center;
   align-items: center;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 8.25rem;
   line-height: 1.75rem;
   padding: 0.5rem;
-  border: 1px solid #ebebeb;
-  border-radius: 0.25rem;
   text-decoration: none;
   color: #d4d0d0;
 }
@@ -473,6 +469,14 @@ body {
 
 .show-counter .countdown > span {
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: 1rem;
   line-height: 1rem;
+}
+
+.clock-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
 }

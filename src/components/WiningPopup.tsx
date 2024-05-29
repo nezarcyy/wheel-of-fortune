@@ -12,7 +12,7 @@ interface ModalProps {
 
 const WinningPopup: React.FC<ModalProps> = ({ isVisible, onClose, winningItem }) => {
     const { width, height } = useWindowSize();
-    const { user } = useUser(); 
+    const { user } = useUser();
 
     if (!isVisible || winningItem === null) return null;
 
@@ -26,5 +26,4 @@ const WinningPopup: React.FC<ModalProps> = ({ isVisible, onClose, winningItem })
       </div>
     );
 };
-
 export default WinningPopup;

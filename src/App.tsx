@@ -10,10 +10,9 @@ import StyledButton from "./components/StartButton";
 import Wheel from "./components/Wheel";
 import AlyfLogo from './assets/Alyf.svg';
 import WiningPopup from "./components/WiningPopup";
-
+import { DataContextProvider } from './context/DataContext';
 function App() {
     const [init, setInit] = useState(false);
-
     useEffect(() => {
         initParticlesEngine(async (engine) => {
             await loadFull(engine);
@@ -21,8 +20,8 @@ function App() {
             setInit(true);
         });
     }, []);
-
     return (
+        <DataContextProvider>
         <Router>
             <div className="App">
                 <div className="absolute top-0 left-0 mt-4 ml-6">
@@ -40,7 +39,7 @@ function App() {
                 </Routes>
             </div>
         </Router>
+        </DataContextProvider>
     );
 }
-
 export default App;

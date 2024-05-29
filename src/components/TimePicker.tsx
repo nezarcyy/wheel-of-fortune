@@ -23,7 +23,6 @@ const TimePicker: React.FC<TimePickerProps> = ({ setTargetDate }) => {
         showTimeSelect
         dateFormat="Pp"
         placeholderText="Select Date and Time"
-        className="p-2 border rounded"
       />
     </div>
   );
