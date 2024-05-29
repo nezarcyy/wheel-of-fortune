@@ -85,27 +85,6 @@
   animation: border-top-right 3s infinite alternate;
 }
 
-@keyframes border-top-right {
-  0% {
-    width: 0px;
-    height: 0px;
-  }
-
-  25% {
-    width: 650px;
-    height: 0px;
-  }
-
-  50% {
-    width: 650px;
-    height: 68px;
-  }
-
-  100% {
-    width: 650px;
-    height: 68px;
-  }
-}
 
 .button:after {
   right: 0;
@@ -115,37 +94,6 @@
   animation: border-bottom-left 3s infinite alternate;
 }
 
-@keyframes border-bottom-left {
-  0% {
-    width: 0px;
-    height: 0px;
-    opacity: 0;
-  }
-
-  50% {
-    width: 0px;
-    height: 0px;
-    opacity: 0;
-  }
-
-  50.1% {
-    width: 0px;
-    height: 0px;
-    opacity: 1;
-  }
-
-  75% {
-    width: 650px;
-    height: 0px;
-    opacity: 1;
-  }
-
-  100% {
-    width: 650px;
-    height: 68px;
-    opacity: 1;
-  }
-}
 /*Contact button*/
 
 .contactbutton {
@@ -185,27 +133,6 @@
   animation: border-top-right 3s infinite alternate;
 }
 
-@keyframes border-top-right {
-  0% {
-    width: 0px;
-    height: 0px;
-  }
-
-  25% {
-    width: 400px;
-    height: 0px;
-  }
-
-  50% {
-    width: 400px;
-    height: 40px;
-  }
-
-  100% {
-    width: 400px;
-    height: 40px;
-  }
-}
 
 .contactbutton:after {
   right: 0;
@@ -213,38 +140,6 @@
   border-bottom: 2px solid #F3BB1A;
   border-left: 2px solid #F3BB1A;
   animation: border-bottom-left 3s infinite alternate;
-}
-
-@keyframes border-bottom-left {
-  0% {
-    width: 0px;
-    height: 0px;
-    opacity: 0;
-  }
-
-  50% {
-    width: 0px;
-    height: 0px;
-    opacity: 0;
-  }
-
-  50.1% {
-    width: 0px;
-    height: 0px;
-    opacity: 1;
-  }
-
-  75% {
-    width: 400px;
-    height: 0px;
-    opacity: 1;
-  }
-
-  100% {
-    width: 400px;
-    height: 40px;
-    opacity: 1;
-  }
 }
 
 /* Responsive styling for tablets and below */
@@ -304,7 +199,7 @@
 
     100% {
       width: 650px;
-      height: 58px;
+      height: 68px;
       opacity: 1;
     }
   }
