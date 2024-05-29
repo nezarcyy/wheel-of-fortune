@@ -9,7 +9,7 @@ import Contact from "./components/SubscriptionForm";
 import StyledButton from "./components/StartButton";
 import Wheel from "./components/Wheel";
 import AlyfLogo from './assets/Alyf.svg';
-import WiningPopup from "./components/WiningPopup";
+import { CountdownProvider } from "./context/CountdownContext";
 import { DataContextProvider } from './context/DataContext';
 function App() {
     const [init, setInit] = useState(false);
@@ -21,25 +21,27 @@ function App() {
         });
     }, []);
     return (
-        <DataContextProvider>
-        <Router>
-            <div className="App">
-                <div className="absolute top-0 left-0 mt-4 ml-6">
-                    <img src={AlyfLogo} className="h-10" alt="logo" />
-                </div>
-                {init && (
-                    <Particles
-                        options={particlesOptions as ISourceOptions}
-                    />
-                )}
-                <Routes>
-                    <Route path="/" element={<StyledButton />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/wheel-of-fortune" element={<Wheel />} />
-                </Routes>
-            </div>
-        </Router>
-        </DataContextProvider>
+        <CountdownProvider>
+            <DataContextProvider>
+                <Router>
+                    <div className="App">
+                        <div className="absolute top-0 left-0 mt-4 ml-6">
+                            <img src={AlyfLogo} className="h-10" alt="logo" />
+                        </div>
+                        {init && (
+                            <Particles
+                                options={particlesOptions as ISourceOptions}
+                            />
+                        )}
+                        <Routes>
+                            <Route path="/" element={<StyledButton />} />
+                            <Route path="/contact" element={<Contact />} />
+                            <Route path="/wheel-of-fortune" element={<Wheel />} />
+                        </Routes>
+                    </div>
+                </Router>
+            </DataContextProvider>
+        </CountdownProvider>
     );
 }
 export default App;

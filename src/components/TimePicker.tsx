@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import DateTimePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 interface TimePickerProps {
   setTargetDate: (date: number) => void;

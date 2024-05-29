@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Wheel from '../assets/wheel.png';
 import ClockIcon from '../assets/icon-clock.svg';
@@ -6,11 +6,12 @@ import Loader from './Loader';
 import '../Slider.css';
 import CountdownTimer from './CountdownTimer';
 import TimePicker from './TimePicker';
+import CountdownContext from '../context/CountdownContext';
 
 const StyledButton: React.FC = () => {
   const navigate = useNavigate();
+  const { targetDate, setTargetDate } = useContext(CountdownContext);
   const [loading, setLoading] = useState(false);
-  const [targetDate, setTargetDate] = useState<number>(Date.now() + 3 * 24 * 60 * 60 * 1000);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleStartNowClick = () => {
@@ -24,16 +25,15 @@ const StyledButton: React.FC = () => {
   useEffect(() => {
     const sleed1 = document.getElementById("sleed1");
 
-    if (sleed1) { 
+    if (sleed1) {
       let position1 = 0;
 
       const interval = setInterval(() => {
         position1 = position1 + 1.25;
-        sleed1.style.backgroundPosition = position1 + "px";
-        sleed1.style.transitionDuration = "2.5ms";
+        (sleed1 as HTMLElement).style.backgroundPosition = position1 + "px";
+        (sleed1 as HTMLElement).style.transitionDuration = "2.5ms";
       }, 40);
 
-      // Clear interval on component unmount
       return () => clearInterval(interval);
     }
   }, []);
