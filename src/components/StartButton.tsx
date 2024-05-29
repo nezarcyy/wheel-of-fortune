@@ -24,7 +24,7 @@ const StyledButton: React.FC = () => {
   useEffect(() => {
     const sleed1 = document.getElementById("sleed1");
 
-    if (sleed1) { // Add this check
+    if (sleed1) { 
       let position1 = 0;
 
       const interval = setInterval(() => {
@@ -67,12 +67,13 @@ const StyledButton: React.FC = () => {
               <p>Alyf's Wheel of Rewards! 🔥🔥</p>
             </div>
             <CountdownTimer targetDate={targetDate} />
+
+            <div id='sleed1' className="relative bottom-0 mt-4">
+              <div id="squareleft" className="absolute"></div>
+              <div id="squareright" className="absolute inset-y-0 right-0"></div>
+            </div>
           </div>
         </div>
-      </div>
-      <div id='sleed1' className="relative bottom-0">
-        <div id="squareleft" className="absolute"></div>
-        <div id="squareright" className="absolute inset-y-0 right-0"></div>
       </div>
 
       {isModalOpen && (
