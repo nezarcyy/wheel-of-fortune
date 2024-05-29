@@ -47,19 +47,27 @@ const StyledButton: React.FC = () => {
   };
 
   return (
-    <div className="relative h-screen bg-black bg-opacity-0">
-      <Loader show={loading} />
-      <div className="flex justify-center items-center h-full">
-        <div className="flex flex-col items-center">
-          <div className="inner">
-            <img src={Wheel} className="rotating" alt="wheel" />
+    <div>
+      <img
+        src={ClockIcon}
+        alt="Clock Icon"
+        className="clock-icon"
+        onClick={handleClockIconClick}
+      />
+      <div className="relative h-screen bg-black bg-opacity-0">
+        <Loader show={loading} />
+        <div className="flex justify-center items-center h-full">
+          <div className="flex flex-col items-center">
+            <div className="inner">
+              <img src={Wheel} className="rotating" alt="wheel" />
+            </div>
+            <div className="typing-slider mb-8 py-4">
+              <p>Where Every Spin Sparks Joy! </p>
+              <p>Wheel Brings Gifts Galore! 🎁</p>
+              <p>Alyf's Wheel of Rewards! 🔥🔥</p>
+            </div>
+            <CountdownTimer targetDate={targetDate} />
           </div>
-          <div className="typing-slider mb-8 py-4">
-            <p>Where Every Spin Sparks Joy! </p>
-            <p>Wheel Brings Gifts Galore! 🎁</p>
-            <p>Alyf's Wheel of Rewards! 🔥🔥</p>
-          </div>
-          <CountdownTimer targetDate={targetDate} />
         </div>
       </div>
       <div id='sleed1' className="relative bottom-0">
