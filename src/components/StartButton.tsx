@@ -7,6 +7,7 @@ import '../Slider.css';
 import CountdownTimer from './CountdownTimer';
 import TimePicker from './TimePicker';
 import CountdownContext from '../context/CountdownContext';
+import LogoCarousel from './Carousel';
 
 const StyledButton: React.FC = () => {
   const navigate = useNavigate();
@@ -68,9 +69,14 @@ const StyledButton: React.FC = () => {
             </div>
             <CountdownTimer targetDate={targetDate} />
 
-            <div id='sleed1' className="relative bottom-0 mt-4">
-              <div id="squareleft" className="absolute"></div>
-              <div id="squareright" className="absolute inset-y-0 right-0"></div>
+            <img
+        src={ClockIcon}
+        alt="Clock Icon"
+        className="clock-icon"
+        onClick={handleClockIconClick}
+      />
+            <div >
+             <LogoCarousel/>
             </div>
           </div>
         </div>

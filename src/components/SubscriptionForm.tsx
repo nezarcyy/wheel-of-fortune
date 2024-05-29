@@ -32,6 +32,7 @@ const SubscriptionForm = () => {
           ...doc.data()
         })) as FirestoreData[];
         setData(dataList);
+        setOrg(dataList)
       } catch (error) {
         console.error("Error fetching data: ", error);
       } finally {
@@ -45,7 +46,9 @@ const SubscriptionForm = () => {
     setUser({ firstName });
     setTimeout(() => {
       setLoading(false);
-      navigate('/wheel-of-fortune');
+      if(org.length){
+        navigate('/wheel-of-fortune');
+      }
     }, 2000);
     event.preventDefault();
     const url = 'https://outlook.us17.list-manage.com/subscribe/post-json?u=7d11ffadf8fc4eb14b70df267&id=6a5994f824&c=?';
