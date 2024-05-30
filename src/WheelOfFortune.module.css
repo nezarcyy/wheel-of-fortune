@@ -118,10 +118,10 @@ html, body {
 .close {
   color: #adadad;
   float: right;
-  font-size: 28px;
+  font-size: 48px;
   font-weight: bold;
   position: absolute;
-  right: 20px; /* Ensures close button is positioned at the top-right corner */
+  right: 30px; /* Ensures close button is positioned at the top-right corner */
   top: 20px;
 }
 

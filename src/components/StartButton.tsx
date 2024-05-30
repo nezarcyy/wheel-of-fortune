@@ -11,7 +11,7 @@ import LogoCarousel from './Carousel';
 
 const StyledButton: React.FC = () => {
   const navigate = useNavigate();
-  const { targetDate, setTargetDate } = useContext(CountdownContext);
+  const { setTargetDate } = useContext(CountdownContext);
   const [loading, setLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -67,16 +67,16 @@ const StyledButton: React.FC = () => {
               <p>Wheel Brings Gifts Galore! 🎁</p>
               <p>Alyf's Wheel of Rewards! 🔥🔥</p>
             </div>
-            <CountdownTimer targetDate={targetDate} />
+            <CountdownTimer />
 
             <img
-        src={ClockIcon}
-        alt="Clock Icon"
-        className="clock-icon"
-        onClick={handleClockIconClick}
-      />
-            <div >
-             <LogoCarousel/>
+              src={ClockIcon}
+              alt="Clock Icon"
+              className="clock-icon"
+              onClick={handleClockIconClick}
+            />
+            <div>
+              <LogoCarousel />
             </div>
           </div>
         </div>
@@ -84,7 +84,7 @@ const StyledButton: React.FC = () => {
 
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-4 rounded">
+          <div className="bg-black p-4 rounded">
             <button onClick={handleCloseModal} className="close-button">×</button>
             <TimePicker setTargetDate={setTargetDate} />
           </div>

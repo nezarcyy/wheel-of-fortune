@@ -7,9 +7,11 @@ interface DateTimeDisplayProps {
 }
 
 const DateTimeDisplay: React.FC<DateTimeDisplayProps> = ({ value, type, isDanger }) => {
+  const formatValue = (value: number) => value.toString().padStart(2, '0');
+
   return (
     <div className={isDanger ? 'countdown danger' : 'countdown'}>
-      <p>{value}</p>
+      <p>{formatValue(value)}</p>
       <span>{type}</span>
     </div>
   );

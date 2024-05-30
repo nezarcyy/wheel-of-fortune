@@ -25,11 +25,8 @@ const ShowCounter: React.FC<ShowCounterProps> = ({ hours, minutes, seconds }) =>
   );
 };
 
-interface CountdownTimerProps {
-  targetDate: number;
-}
-
-const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
+const CountdownTimer: React.FC = () => {
+  const { targetDate } = useContext(CountdownContext);
   const [days, hours, minutes, seconds] = useCountdown(targetDate);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);

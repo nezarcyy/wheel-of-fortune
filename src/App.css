@@ -389,10 +389,10 @@ body {
   font-size: 15px;
   font-weight: bold;
   margin-left: auto;
-  background-color: #e6e6e6;
   cursor: pointer;
-  border: none;
-  border-radius: 20px;  
+  border-radius: 20px; 
+  color: #ED7E07;
+  background-color: #ED7E07; 
 }
   
 .close-button:hover {
