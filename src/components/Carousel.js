@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 
 const logos = [
- require('../assets/1.png'),
- require('../assets/2.png'),
+  require('../assets/1.png'),
+  require('../assets/2.png'),
   require('../assets/3.png'),
   require('../assets/4.png'),
   require('../assets/5.png'),
+  require('../assets/7.png'),
   require('../assets/6.png'),
 ];
 
@@ -15,12 +16,12 @@ const LogoCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % logos.length);
-    }, 40000); 
+    }, 10000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="w-full h-64 overflow-hidden  mb-10 ">
+    <div className="w-full h-64 overflow-hidden mt-10 mb-10 ">
       <div
         className="flex transition-transform duration-1000 ease-in-out h-full pB-10"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
